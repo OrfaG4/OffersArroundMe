@@ -1,5 +1,5 @@
 <?php 
-	class User{
+	class UserDAO{
 		
 		protected $db;
 		
@@ -7,7 +7,7 @@
 			$this->db = $db;
 		}
 				
-		public function getUser(){
+		public function getUserDAO(){
 			$user = $this->db->query("SELECT * FROM users");
 			return $user->fetchAll(PDO::FETCH_OBJ);
 		}
