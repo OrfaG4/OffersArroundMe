@@ -1,35 +1,34 @@
 <?php 
-	class Home extends Controller{
+	class Home extends ControllerDAO{
 		
 		public function index(){
-			$userModel = $this->model('User');
-			$offersModel = $this->model('Offers');
-			$user = $userModel->getUser();
-			$offers = $offersModel->getOffers();			
-			$this->view('templates/header');
-			$this->view('home/index',array('user'=>$user, 'offers'=>$offers));
-			$this->view('templates/footer');
-		}
-		
-		public function coor(){
-			if(isset($_POST['location'])){
-				$location = $_POST['location'];
-				$url = "http://maps.google.com/maps/api/geocode/json?address=$location&sensor=false&region=GR";
-				$response = file_get_contents($url);
-				$response = json_decode($response, true);
-							
-				$lat = $response['results'][0]['geometry']['location']['lat'];
-				$long = $response['results'][0]['geometry']['location']['lng'];
-							
-				$coordinants = array("lat"=>$lat, "long"=>$long);
-				$this->view('home/coordinants', array('coords'=>$coordinants));
+			session_start();
+			if(!isset($_SESSION['user'])){
+				$this->view('templates/header');
+				$this->view('login/index');
+				$this->view('templates/footer');
+			
+			}else{
+				$offersModel = $this->model('OffersDAO');
+				$offers = $offersModel->getTopThreeOffersDAO();
+				
+				$this->view('templates/header');
+				$this->view('home/index', array('offers'=>$offers));
+				$this->view('templates/footer');
 			}
 		}
 		
+		public function coor(){
+			$offersModel = $this->model('OffersDAO');
+			$coordinants = $offersModel->retreiveCoordinants();
+			$this->view('home/coordinants', array('coords'=>$coordinants));
+		}
+		
 		public function markers(){
-			$offersModel = $this->model('Offers');
-			$markerData = $offersModel->getOffers();
+			$offersModel = $this->model('OffersDAO');
+			$markerData = $offersModel->getOffersDAO();
 			$this->view('home/markers', array('markers' => $markerData ));
 		}
+		
 	}
 ?>
