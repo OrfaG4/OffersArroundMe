@@ -20,16 +20,16 @@
 				return $coordinants;
 			}
 		}
-				
+		//epistrefei oles tis prosfores		
 		public function getOffersDAO(){
-			$user = $this->db->query("SELECT * FROM discounts");
-			return $user->fetchAll(PDO::FETCH_OBJ);
+			$offers = $this->db->query("SELECT * FROM discounts")or die(mysql_error());
+			return $offers->fetchAll(PDO::FETCH_OBJ);
 		}
 		
+		//epistrefei tis korufaies 3 prosfores
 		public function getTopThreeOffersDAO(){
-			$user = $this->db->query("SELECT * FROM discounts ORDER BY percent DESC LIMIT 3 ");
-			return $user->fetchAll(PDO::FETCH_OBJ);
+			$topThreeOffers = $this->db->query("SELECT * FROM discounts ORDER BY percent DESC LIMIT 3 ")or die(mysql_error());
+			return $topThreeOffers->fetchAll(PDO::FETCH_OBJ);
 		}
-		
 	}
 ?>
