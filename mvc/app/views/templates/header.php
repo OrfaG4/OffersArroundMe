@@ -13,7 +13,9 @@
         <!-- JavaScript plugins Bootstrap -->
         <script src="<?php echo APP_ASSETS;?>js/bootstrap.min.js"></script>
         <script src="<?php echo APP_ASSETS;?>js/scrpits.js"></script>
+        <script src="<?php echo APP_ASSETS;?>js/functions.js"></script>
         <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false"></script>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
 	</head>
 	
 	<body>
@@ -31,9 +33,9 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                   <ul class="nav navbar-nav">
-                    <li class="active"><a href="home/index">Home</a></li>
-                    <li><a href="home/about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li class="active"><a href="<?php echo HOME_PAGE . "/home/index"; ?>">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
                   </ul>
                 </div>
             </div>
