@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2014 at 11:40 AM
+-- Generation Time: Dec 11, 2014 at 10:55 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -33,17 +33,19 @@ CREATE TABLE IF NOT EXISTS `discounts` (
   `store_id` int(11) NOT NULL,
   `lat` double NOT NULL,
   `long` double NOT NULL,
+  `percent` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `discounts`
 --
 
-INSERT INTO `discounts` (`id`, `title`, `desc`, `store_id`, `lat`, `long`) VALUES
-(3, 'Discounts up to 30 %', 'Discounts up to 30 % Discounts up to 30 % Discounts up to 30 % Discounts up to 30 % Discounts up to 30 % Discounts up to 30 %Discounts up to 30 %Discounts up to 30 %Discounts up to 30 %Discounts up to 30 %', 1, 41.0819892, 23.5443227),
-(4, 'Offers up to 90%', 'Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%', 2, 41.085865, 23.547482),
-(5, 'up to 50 percent off!!!', 'up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!', 2, 41.087684, 23.540953);
+INSERT INTO `discounts` (`id`, `title`, `desc`, `store_id`, `lat`, `long`, `percent`) VALUES
+(3, 'Discounts up to 30 %', 'Discounts up to 30 % Discounts up to 30 % Discounts up to 30 % Discounts up to 30 % Discounts up to 30 % Discounts up to 30 %Discounts up to 30 %Discounts up to 30 %Discounts up to 30 %Discounts up to 30 %', 1, 41.0819892, 23.5443227, 30),
+(4, 'Offers up to 90%', 'Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%Offers up to 90%', 2, 41.085865, 23.547482, 90),
+(5, 'up to 50 percent off!!!', 'up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!up to 50 percent off!!!', 2, 41.087684, 23.540953, 50),
+(6, 'Offer 5', 'Offer 5 Offer 5 Offer 5 Offer 5 Offer 5 Offer 5  Offer 5 Offer 5 Offer 5 Offer 5 Offer 5 Offer 5 Offer 5 Offer 5 Offer 5 Offer 5 Offer 5 Offer 5 Offer 5 Offer 5 Offer 5 Offer 5', 5, 41.092712, 23.559458, 15);
 
 -- --------------------------------------------------------
 
