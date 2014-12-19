@@ -10,7 +10,7 @@
 			
 			}else{
 				$offersModel = $this->model('OffersDAO');
-				$offers = $offersModel->getTopThreeOffersDAO();
+				$offers = $offersModel->getTopThreeOffersDAO("SELECT * FROM discounts ORDER BY percent DESC LIMIT 3 ");
 				
 				$this->view('templates/header');
 				$this->view('home/index', array('offers'=>$offers));
@@ -20,13 +20,13 @@
 		
 		public function coor(){
 			$offersModel = $this->model('OffersDAO');
-			$coordinants = $offersModel->retreiveCoordinants();
-			$this->view('home/coordinants', array('coords'=>$coordinants));
+			$location = $_POST['location'];
+			$coordinates = $offersModel->retreiveCoordinates($location,'www.google.com',80);
+			$this->view('home/coordinants', array('coords'=>$coordinates));
 		}
-		
 		public function markers(){
 			$offersModel = $this->model('OffersDAO');
-			$markerData = $offersModel->getOffersDAO();
+			$markerData = $offersModel->getOffersDAO("SELECT * FROM discounts");
 			$this->view('home/markers', array('markers' => $markerData ));
 		}
 		
