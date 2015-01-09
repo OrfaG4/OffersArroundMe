@@ -6,7 +6,7 @@ class App{
 	protected $params = array();
 	
 	public function __construct(){
-		$url = $this->parseUrl();
+		$url = $this->parseUrl($_GET['url']);
 		
 		if(file_exists('../app/controllers/' .$url[0]. '.php')){
 			$this->controller = $url[0];
@@ -26,16 +26,12 @@ class App{
 		call_user_func_array(array($this->controller, $this->method), $this->params);
 	} 
 	
-	protected function parseUrl(){
-		//Ελεγχω αν υπάρχει η μεταβλητή $_GET['url']
-		if(isset($_GET['url'])){
+	public function parseUrl($url){
 			/*	Βάζω το url σε μεταβλητή πίνακα. 
 			 *	πχ home/index μετατρέπεται σε $url[0] = home, $url[1] = index
 			 */
-			$url = explode('/', filter_var(rtrim($_GET['url'], '/'),FILTER_SANITIZE_URL));
+			$url = explode('/', filter_var(rtrim($url, '/'),FILTER_SANITIZE_URL));
 			return($url);
-				
-		}
 	}
 }
 
