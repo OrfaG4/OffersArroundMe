@@ -18,6 +18,7 @@
                             $lat = $jsonArray['results'][0]['geometry']['location']['lat'];
                             $long = $jsonArray['results'][0]['geometry']['location']['lng'];
                             
+                            
                             if(isset($_POST['distance'])){
                                 $distance = $_POST['distance'];
                             }
