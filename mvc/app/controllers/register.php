@@ -1,6 +1,8 @@
 <?php 
     class Register extends ControllerDAO{
        
+	   
+	   
         public function index(){
             $this->view('templates/header');
             $this->view('register/index');
