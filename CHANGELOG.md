@@ -1,4 +1,9 @@
-## Version 0.4 (unreleased)
+## Version 0.5
+   - register ως admin
+   - Contact us form
+   - testing σε όλα τα user-strories
+
+## Version 0.4 
    - test στην βάση
    - signup
    - Πληροφορίες καταστήματος
