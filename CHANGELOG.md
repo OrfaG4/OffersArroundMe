@@ -1,9 +1,9 @@
-## Version 0.5
+## Version 0.5 (16/1/2015)
    - register ως admin
    - Contact us form
    - testing σε όλα τα user-strories
 
-## Version 0.4 
+## Version 0.4 (9/1/2015)
    - test στην βάση
    - signup
    - Πληροφορίες καταστήματος
