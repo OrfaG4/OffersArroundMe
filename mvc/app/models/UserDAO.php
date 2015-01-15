@@ -1,4 +1,4 @@
-<?php 
+<?php
 	class UserDAO{
 		
 		protected $db;
@@ -13,23 +13,35 @@
 				
 		public function auth($username, $password){
                     $users = $this->getUsersDAO();
+                   // var_dump($users);
+                    
                     foreach($users as $user){
-                        if($username == $user->username && $password == $user->password){
-                            //session_start();
-                            $_SESSION['user'] = $username;
-                            return true;
-			}
-                        else{
-                            return false;
-			}
+                       if($username == $user->username && $password == $user->password){
+                           $_SESSION['uid'] = $user->id;
+                           $_SESSION['user'] = $username;
+                           $_SESSION['type'] = $user->type;
+                           return true;
+                       }
                     }
+                    return false;
 		}
 		
 		public function  destroySession(){
-				//$_SESSION = array(); //destroy all of the session variables
-  				session_start();
-				session_unset();
+                                session_unset();
 				session_destroy();
 			}
+                        
+                public function register($username,$password,$email,$type){
+                    $sql = "INSERT INTO users (username, password, email, type) VALUES ('$username', '$password','$email','$type')";
+                    $querySuccess = false;
+                    if($username!="" && $password!="" && $email!="" && $type !=""){
+                        $querySuccess = $this->db->query($sql);
+                    }
+                    if($querySuccess){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }
 	}
 ?>
