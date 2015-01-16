@@ -8,8 +8,8 @@ $(document).ready(
 		zoom:7,
 		mapTypeId:google.maps.MapTypeId.ROADMAP
 		};
+                
 		var map=new google.maps.Map(document.getElementById("googleMap") ,mapProperties);
-		
 		//*************************************************
 		//pernw ta dedomena apo txt arxeio kai dimiourgw marker
 		$.ajax({
@@ -50,6 +50,7 @@ $(document).ready(
 			.done(function(data){
 				var searchLong = data['long'];
 				var searchLat = data['lat'];
+                                var dist = data['distance'];
 				var searchLatLng = new google.maps.LatLng(searchLat, searchLong);
 				map.setCenter(searchLatLng);
 				map.setZoom(14);
@@ -98,7 +99,7 @@ $(document).ready(
 							
 					//********
 					//Gia tis kontines prosfores MONO
-					//if(distance <= 0.3){
+					if(distance <= dist){
 							//oi grammes pou enwnoun prosfores-xristi		
 							polyline = new google.maps.Polyline({
 								path: [myLatLong, latLangToCompare],
@@ -135,10 +136,10 @@ $(document).ready(
 						google.maps.event.addListener(marker, 'mouseover', function() {
 						infowindow.open(map,this);
 						});
-						google.maps.event.addListener(marker, 'mouseout', function() {
+						google.maps.event.addListener(marker, 'click', function() {
 						infowindow.close(map,this);
 						});
-		//************}
+                                        }
 					});
 					
 				})
