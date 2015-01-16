@@ -1,0 +1,31 @@
+<div class="container-full">
+    <div class="col-md-10">
+<?php 
+foreach($data['ownerDetails'] as $owner){
+?>
+        <div class="col-md-7 jumbotron">
+            <h2 class="dark-grey alert">Welcome to <?php echo $owner->username; ?>'s store</h2>
+            <h3 class="glyphicon-envelope alert"> You can e-mail us to this address:<i> <?php echo $owner->email?></i></h3>
+<?php
+}
+?>        
+            
+        </div>
+        <div class="col-md-4 jumbotron col-md-offset-1">
+            <h3 class="dark-grey alert">Leave a comment...</h3>
+            <form method="post" action="http://localhost/mvc/public/userSide/makeComment">
+                <input type="hidden" value="<?php echo $owner->id;?>" name="uid">
+                <textarea required = "required" cols="50" rows="6" name="comment"></textarea>
+                <input type="submit" value="Comment" class="btn btn-primary">
+            </form>
+        </div>
+        <div class="col-md-12 jumbotron">
+            <h2 class="dark-grey alert">Comments section</h2><hr/>
+            <?php foreach ($data["comments"] as $comments){?>
+            <p class="alert col-md-8 text-primary bg-info">
+                <i><?php echo $comments->comment;?></i>
+            </p>
+            
+            <?php }?>
+        </div>
+</div>
