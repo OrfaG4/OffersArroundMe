@@ -1,5 +1,3 @@
-
-
 -- phpMyAdmin SQL Dump
 -- version 4.2.7.1
 -- http://www.phpmyadmin.net
