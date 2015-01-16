@@ -12,17 +12,17 @@ class RetrieveCoordinates extends PHPUnit_Framework_TestCase{
 	}
 	
 	public function testCoordinatesNotEmpty(){
-		$coordinates = $this->testObj->retreiveCoordinates('Serres','www.goole.com',80);
+		$coordinates = $this->testObj->retreiveCoordinates('Serres','www.google.com',80);
 		$this->assertNotNull($coordinates);
 	}
        
         public function testCoordinatesReturnArray(){
-		$coordinates = $this->testObj->retreiveCoordinates('Serres','www.goole.com',80);
+		$coordinates = $this->testObj->retreiveCoordinates('Serres','www.google.com',80);
 		$this->assertTrue(is_array($coordinates));
 	}
         
         public function testCoordinatesWhenLocationIsBad(){
-		$coordinates = $this->testObj->retreiveCoordinates('---','www.goole.com',80);
+		$coordinates = $this->testObj->retreiveCoordinates('---','www.google.com',80);
 		var_dump($coordinates);
                 $this->assertNull($coordinates['lat']);
                 $this->assertNull($coordinates['long']);
