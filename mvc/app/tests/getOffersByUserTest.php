@@ -33,3 +33,4 @@ class getOffersByUserTest extends PHPUnit_Framework_TestCase{
         $this->assertTrue(!isset($output[0]->id));
     }
 }
+?>
