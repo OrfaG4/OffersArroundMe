@@ -2,33 +2,33 @@
 session_start();
 class UserSide extends ControllerDAO{
     public function index(){
-        $userSideOffersDAOmodel = $this->model('UserSideOffersDAO');
-        $allOffers = $userSideOffersDAOmodel->showAllOffers();
+        $userSideRecipesDAOmodel = $this->model('UserSideRecipesDAO');
+        $allRecipes = $userSideRecipesDAOmodel->showAllRecipes();
         
         $this->view('templates/header');
-        $this->view('userSide/index', array("allOffers"=>$allOffers));
+        $this->view('userSide/index', array("allRecipes"=>$allRecipes));
         $this->view('templates/footer');
     }
-    public function seeStoreOwner(){
+    public function seeStoreCook(){
         $uid = $_POST['id'];
         
-        $userSideOffersDAOmodel = $this->model('UserSideOffersDAO');
-        $ownerDetails = $userSideOffersDAOmodel->showOwner($uid);
-        $comments = $userSideOffersDAOmodel->showComments($uid);
+        $userSideRecipesDAOmodel = $this->model('UserSideRecipesDAO');
+        $cookDetails = $userSideRecipesDAOmodel->showCook($uid);
+        $message = $userSideRecipesDAOmodel->showmessages($uid);
         
         $this->view('templates/header');
-        $this->view('userSide/showStoreOwners', array("ownerDetails"=>$ownerDetails,"comments"=>$comments));
+        $this->view('userSide/showStoreCooks', array("cookDetails"=>$cookDetails,"message"=>$message));
         $this->view('templates/footer');
     }
     
-    public function makeComment(){
+    public function makemessage(){
         $uid = $_POST['uid'];
-        $comment = $_POST['comment'];
+        $message = $_POST['message'];
        
-        $userSideOffersDAOmodel = $this->model('UserSideOffersDAO');
-        $commentSender = $userSideOffersDAOmodel->uploadComment($uid, $comment);
-        if($commentSender){
-            echo"<META http-equiv='refresh' content='0;URL=http://localhost/mvc/public/userSide/showStoreOwners'>";
+        $userSideRecipesDAOmodel = $this->model('UserSideRecipesDAO');
+        $messageSender = $userSideRecipesDAOmodel->uploadmessage($uid, $message);
+        if($messageSender){
+            echo"<META http-equiv='refresh' content='0;URL=http://localhost/CookBook/public/userSide/showStoreCooks'>";
         }
     }
 }
