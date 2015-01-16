@@ -27,6 +27,8 @@
                                 <!-- Button -->
                                 <div class="col-sm-12 controls">
                                 	<input type="submit" id="btn-login" class="btn btn-success" value="Login"  />
+                                        <a href="http://localhost/mvc/public/register" class="btn btn-default">...or Register</a>
+                                        
                                 </div>
                                 <!-- End Button -->
                             </div>
