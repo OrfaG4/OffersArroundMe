@@ -5,7 +5,7 @@
 			 <?php if(isset($_SESSION['user'])){ 
 				 echo"<div class='row'>";
     			 echo"<div class='col-md-2 col-md-offset-5 jumbotron'>";
-				 echo"<h3 style='text-align:center'>Weclome back " . $_SESSION['user'] . " !</h3>";
+				 echo"<h3 style='text-align:center'>Welcome back " . $_SESSION['user'] . " !</h3>";
 				 echo"<form action=" . HOME_PAGE . "/logout>";
 				 echo "<div class='col-md-2 col-md-offset-4 controls'>
 						  <input type='submit' id='btn-login' class='btn btn-success' value='Logout'  />
