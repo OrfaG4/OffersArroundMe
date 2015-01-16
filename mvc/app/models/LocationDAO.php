@@ -1,9 +1,5 @@
 
 
-
-<?php
-/*Η κλάση LocationDAO ειναι το model Που διαχειρίζεται
- *την τοποθεσία του χρήστη μεσα απο txt αρχείο
 <?php
 class LocationDAO{
 	protected $txt;
