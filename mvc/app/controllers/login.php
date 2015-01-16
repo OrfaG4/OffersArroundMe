@@ -1,4 +1,5 @@
 <?php 
+        session_start();
 	class Login extends ControllerDAO{
 
 		public function index(){
@@ -8,7 +9,7 @@
 			
 			$this->view('templates/header');
 			if($users->auth($_REQUEST['username'],$_REQUEST['password'])){
-				$this->view('home/index' ,array('offers'=>$offers,'user'=>$_REQUEST['username']));
+                                echo"<META http-equiv='refresh' content='0;URL=http://localhost/mvc/public/home'>";
 			}else{
 				$this->view('login/loginFailed');
 			}
